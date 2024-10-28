@@ -99,5 +99,8 @@ export default function LoginPage() {
 export const action: ActionFunction = async ({ request }) => {
   const credentialsData = await request.formData();
   const credentials = Object.fromEntries(credentialsData);
-  await login(credentials.email as string, credentials.password as string);
+  return await login(
+    credentials.email as string,
+    credentials.password as string
+  );
 };

@@ -1,16 +1,8 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 import { useState } from "react";
-import { getUserFromFromSession } from "~/server/auth";
-
-import type { LoaderFunction } from "@remix-run/node";
-
-export const loader: LoaderFunction = async ({ request }) => {
-  return getUserFromFromSession(request);
-};
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const userId = useLoaderData() as string | null;
 
   return (
     <nav className="bg-white shadow-md">
@@ -95,28 +87,19 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            {/* User Actions */}
-            {!userId && (
-              <Link
-                to="/login"
-                className="text-gray-700 hover:text-indigo-600 text-lg font-medium"
-              >
-                Log In
-              </Link>
-            )}
-            {userId && (
-              <button className="text-gray-700 hover:text-indigo-600 text-lg font-medium">
-                Logout
-              </button>
-            )}
-            {!userId && (
-              <Link
-                to="/signup"
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-200 text-lg font-medium"
-              >
-                Sign Up
-              </Link>
-            )}
+            <Link
+              to="/login"
+              className="text-gray-700 hover:text-indigo-600 text-lg font-medium"
+            >
+              Log In
+            </Link>
+
+            <Link
+              to="/signup"
+              className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-200 text-lg font-medium"
+            >
+              Sign Up
+            </Link>
           </div>
         </div>
       </div>
