@@ -15,8 +15,8 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/sayemhossain/remix-practice
+   cd remix-practice
    ```
 
 2. Install dependencies:
